@@ -44,7 +44,7 @@ let ToledoOhio = {
 }
 let FlorenceItaly = {
     maxCust: 76,
-    minCust: 16(),
+    minCust: 16,
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
@@ -88,7 +88,7 @@ let TokyoJapan = {
     totalDailyCookies:0,
     CalCustomersPerHour: function(){
         for (i = 0; i < hours.length; i++){
-        this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
+        let customersPerHour = this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
         }
         return(this.customersPerHour);
     },
@@ -108,7 +108,7 @@ let cookieContainer5 = document.getElementById('cookies-sold-tokyo');
 function render(hours){
     for (i=0; i < hours.length; i=i+1){
         let li = document.createElement('li');
-        li.textContent = `${hours[i]} : # of cookies`;
+        li.textContent = `${hours[i]} : ${SeattleWashington.customersPerHour[i]}`;
         ul.append(li);
 }
 cookieContainer1.append(ul);
