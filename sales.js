@@ -6,13 +6,13 @@
 // Calculating the sum of these hourly totals; your output for each location should look like this:
 const hoursOpen = ["7am", "8am", "9am", "10am", "11am", "2am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"];
 let SeattleWashington = {
-    maxCust: 63,
-    minCust: 13,
+    maxCust: 65,
+    minCust: 12,
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
     totalDailyCookies:0,
-    calCustomersPerHour: function(){
+    CalCustomersPerHour: function(){
         for (i = 0; i < hours.length; i++){
         this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
         }
@@ -25,8 +25,8 @@ let SeattleWashington = {
     }
 }
 let ToledoOhio = {
-    maxCust: math.random(),
-    minCust: math.random(),
+    maxCust: 65,
+    minCust: 12,
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
@@ -43,13 +43,13 @@ let ToledoOhio = {
     }
 }
 let FlorenceItaly = {
-    maxCust: math.random(),
-    minCust: math.random(),
+    maxCust: 76,
+    minCust: 16(),
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
     totalDailyCookies:0,
-    calCustomersPerHour: function(){
+    CalCustomersPerHour: function(){
         for (i = 0; i < hours.length; i++){
         this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
         }
@@ -62,13 +62,13 @@ let FlorenceItaly = {
 }
 }
 let MilanItaly = {
-    maxCust: math.random(),
-    minCust: math.random(),
+    maxCust: 58,
+    minCust: 5,
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
     totalDailyCookies:0,
-    calCustomersPerHour: function(){
+    CalCustomersPerHour: function(){
         for (i = 0; i < hours.length; i++){
         this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
         }
@@ -80,13 +80,13 @@ let MilanItaly = {
 }
 }
 let TokyoJapan = {
-    maxCust: math.random(),
-    minCust: math.random(),
+    maxCust: 84,
+    minCust: 3,
     avrgCookie: 6.3,
     customersPerHour:[],
     cookiesPerHour:[],
     totalDailyCookies:0,
-    calCustomersPerHour: function(){
+    CalCustomersPerHour: function(){
         for (i = 0; i < hours.length; i++){
         this.customersPerHour.push(math.floor(Math.random(this.maxCust - this.minCust + 1)*this.minCust));
         }
@@ -108,7 +108,7 @@ let cookieContainer5 = document.getElementById('cookies-sold-tokyo');
 function render(hours){
     for (i=0; i < hours.length; i=i+1){
         let li = document.createElement('li');
-        li.textContent = `${hours[i]} : Cookie Count Here`;
+        li.textContent = `${hours[i]} : # of cookies`;
         ul.append(li);
 }
 cookieContainer1.append(ul);
