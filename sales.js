@@ -36,22 +36,24 @@ function Location(maxCust, minCust, avrgCookie){
         tableData.textContent = `${this.name}`;
         tableRow.append(tableData);
     }
-
+    //this.calAvrgCookies = function(){
+    //    let this.avrgCookie
+    //}
 }
-let SeattleWashington = new Location(85,15,6.9);
+let SeattleWashington = new Location(85,15,7.1);
 SeattleWashington.calCustomersPerHour();
 SeattleWashington.calCookiesPerHour();
 SeattleWashington.RenderLoc();
-let ToledoOhio = new Location(85,15,6.9);
-let FlorenceItaly = new Location(85,15,6.9);
-let MilanItaly = new Location(85,15,6.9);
-let TokyoJapan = new Location(85,15,6.9);
+let ToledoOhio = new Location(85,15,5.3);
+let FlorenceItaly = new Location(85,15,3.9);
+let MilanItaly = new Location(85,15,4.7);
+let TokyoJapan = new Location(85,15,5.8);
 let salesTable = document.getElementById("sales-table");
 let tableHeaderEl = document.createElement('th');
 let tableHeaderContainer = document.createElement('thead');
 
 function renderTableHeader(){
-    for (let i=0; i<hoursOpen.length;i++){
+    for (let i = 0; i < hoursOpen.length;i++){
         let tableHeaderEl = document.createElement('th');
         let tableRow = document.createElement('tr');
         tableHeaderEl.textContent = `${hoursOpen[i]}`;
@@ -59,8 +61,9 @@ function renderTableHeader(){
         tableHeaderContainer.append(tableRow);
     }
 }
-function renderTableFooter(){
-    for (i=0; i < hoursOpen.length + 1; i++ ){
+function renderTableFooter(a,b,c,d,e){
+    for (let i = 0; i < hoursOpen.length + 1; i++ ){
+
         let tablefooter = document.createElement('tfoot');
         tablefooter.textContent = `${this.totalDailyCookies}`;
         let tableRow = document.createElement('tr');
@@ -81,5 +84,5 @@ function renderTableFooter(){
 //renderFlorence(hoursOpen);
 //renderMilan(hoursOpen);
 //renderTokyo(hoursOpen);
-console.log(Location);
+console.log(SeattleWashington);
 renderTableHeader();
