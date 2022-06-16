@@ -7,21 +7,24 @@
 let cookieContainer = document.getElementById('sales-table');
 let tableBody = document.createElement('tbody');
 cookieContainer.append(tableBody);
+
 const hoursOpen = ["7am", "8am", "9am", "10am", "11am", "2am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"];
-function Location(maxCust, minCust, avrgCookie, cookiesPerHour, customersPerHour, totalDailyCookies){
+function Location(maxCust, minCust, avrgCookie){
     this.maxCust = maxCust;
     this.minCust = minCust;
-    this.cookiesPerHour = cookiesPerHour;
-    this.customersPerHour = customersPerHour;
+    this.cookiesPerHour = [];
+    this.customersPerHour = [];
     this.avrgCookie = avrgCookie;
-    this.totalDailyCookies = totalDailyCookies;
-    this.CalCustomersPerHour = function(){
-        for (i = 0; i < hoursOpen.length; i++){
-            let customersPerHour = this.customersPerHour.push(Math.floor(Math.random(this.minCust - this.minCust + 1)+this.maxCust));
+    this.totalDailyCookies = 0;
+    this.calCustomersPerHour = function(){
+        for (let i = 0; i < hoursOpen.length; i++){
+            let customerPerHour = hoursOpen[i];
+            let randomCustomer = Math.floor(Math.random(this.maxCust - this.minCust + 1)*this.maxCust);
+            this.customersPerHour.push(randomCustomer);
         }
     }
-    this.CalCookiesPerHour = function(){
-        for (i=0; i<hoursOpen.length; i++){
+    this.calCookiesPerHour = function(){
+        for (let i = 0; i<hoursOpen.length; i++){
             let oneHour = Math.ceil(this.customersPerHour[i] * this.avrgCookie);
             this.totalDailyCookies += oneHour;
             this.cookiesPerHour.push(oneHour);
@@ -35,27 +38,26 @@ function Location(maxCust, minCust, avrgCookie, cookiesPerHour, customersPerHour
     }
 
 }
-let SeattleWashington = new Location(85,15,6.9,[],[]);
-SeattleWashington.CalCustomersPerHour();
-SeattleWashington.CalCookiesPerHour();
+let SeattleWashington = new Location(85,15,6.9);
+SeattleWashington.calCustomersPerHour();
+SeattleWashington.calCookiesPerHour();
 SeattleWashington.RenderLoc();
-let ToledoOhio = new Location(85,15,6.9,[],[]);
-let FlorenceItaly = new Location(85,15,6.9,[],[]);
-let MilanItaly = new Location(85,15,6.9,[],[]);
-let TokyoJapan = new Location(85,15,6.9,[],[]);
+let ToledoOhio = new Location(85,15,6.9);
+let FlorenceItaly = new Location(85,15,6.9);
+let MilanItaly = new Location(85,15,6.9);
+let TokyoJapan = new Location(85,15,6.9);
 let salesTable = document.getElementById("sales-table");
 let tableHeaderEl = document.createElement('th');
 let tableHeaderContainer = document.createElement('thead');
 
 function renderTableHeader(){
-    for (i=0; i<hoursOpen.length;i++){
+    for (let i=0; i<hoursOpen.length;i++){
         let tableHeaderEl = document.createElement('th');
         let tableRow = document.createElement('tr');
         tableHeaderEl.textContent = `${hoursOpen[i]}`;
         tableRow.append(tableHeaderEl);
+        tableHeaderContainer.append(tableRow);
     }
-    tableHeaderContainer.append(tableRow);
-    console.log(tableRow);
 }
 function renderTableFooter(){
     for (i=0; i < hoursOpen.length + 1; i++ ){
@@ -79,5 +81,5 @@ function renderTableFooter(){
 //renderFlorence(hoursOpen);
 //renderMilan(hoursOpen);
 //renderTokyo(hoursOpen);
-console.log(Location(SeattleWashington));
+console.log(Location);
 renderTableHeader();
